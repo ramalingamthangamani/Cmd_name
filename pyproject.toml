@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "raksha"
+version = "1.0.0"
+description = "A small, quiet terminal experience."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Made with a lot of thought" }]
+keywords = ["cli", "terminal", "letter"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Artistic Software",
+]
+dependencies = []
+
+[project.scripts]
+raksha = "raksha.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/raksha"]
+
+[tool.hatch.build.targets.sdist]
+# Only the client ships. The backend (and anything resembling a secret)
+# is deliberately excluded from the published artifact.
+include = ["/src/raksha", "/tests", "/README.md", "/LICENSE"]
+exclude = ["/backend", "*.env", ".env*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
