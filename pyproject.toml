@@ -3,7 +3,10 @@ requires = ["hatchling>=1.18"]
 build-backend = "hatchling.build"
 
 [project]
-name = "raksha"
+# The distribution is "raksha-cli" because "raksha" was already taken on
+# PyPI. The installed command and the import package are both still
+# "raksha" -- she types `raksha`, exactly as intended.
+name = "raksha-cli"
 version = "1.0.0"
 description = "A small, quiet terminal experience."
 readme = "README.md"

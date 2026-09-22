@@ -3,7 +3,7 @@
 A small terminal experience.
 
 ```bash
-pip install raksha
+pip install raksha-cli
 ```
 
 Then:
@@ -15,6 +15,9 @@ raksha
 That's the whole thing. It runs in the terminal, works offline, and takes a
 few minutes to read through.
 
+> The package installs as `raksha-cli` because `raksha` was already taken on
+> PyPI by an unrelated project. The command you actually type is `raksha`.
+
 ---
 
 ## What it is
@@ -24,7 +27,7 @@ sequence, a menu, a few scenes to wander through, and one question at the end.
 There is also a way to write a message back.
 
 It is a standard console application. It installs like any other package,
-runs like any other command, and uninstalls with `pip uninstall raksha`.
+runs like any other command, and uninstalls with `pip uninstall raksha-cli`.
 
 ## Requirements
 
@@ -136,8 +139,8 @@ raksha --fast       # read it end to end in a few seconds
 ## Local development
 
 ```bash
-git clone <your repo>
-cd raksha
+git clone https://github.com/ramalingamthangamani/Cmd_name.git
+cd Cmd_name
 pip install -e ".[dev]"
 raksha
 ```
@@ -154,7 +157,7 @@ Build a distribution:
 ```bash
 pip install build
 python -m build           # writes dist/*.whl and dist/*.tar.gz
-pip install dist/raksha-1.0.0-py3-none-any.whl
+pip install dist/raksha_cli-1.0.0-py3-none-any.whl
 ```
 
 Publish:
@@ -224,7 +227,7 @@ of the configuration, never the values.
 * No telemetry, no analytics, no tracking, no identifiers.
 * Nothing is written to disk. No config file, no history, no cache.
 * No network access at all unless she chooses to send a message and confirms.
-* Uninstalling removes everything: `pip uninstall raksha`.
+* Uninstalling removes everything: `pip uninstall raksha-cli`.
 
 ## License
 
