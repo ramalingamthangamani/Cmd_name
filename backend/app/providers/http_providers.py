@@ -20,7 +20,9 @@ TIMEOUT = 15
 
 def _post_json(url: str, payload: dict, headers: dict) -> dict:
     data = json.dumps(payload).encode("utf-8")
-    request = urllib.request.Request(url, data=data, method="POST", headers=headers)
+    req_headers = {"User-Agent": "resend-python/1.0.0"}
+    req_headers.update(headers)
+    request = urllib.request.Request(url, data=data, method="POST", headers=req_headers)
     try:
         with urllib.request.urlopen(request, timeout=TIMEOUT, context=ssl.create_default_context()) as response:
             body = response.read().decode("utf-8", "replace")
